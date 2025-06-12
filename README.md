@@ -23,9 +23,10 @@ cd gestor-empleados
 ```
 
 2. **Configurar la base de datos:**
-Asegúrate de tener un servidor MySQL ejecutándose y creada una base de datos llamada `empleados_db`.
+Asegúrate de tener un servidor MySQL ejecutándose en el puerto 3306, creada una base de datos llamada `empleados_db` con el usuario `root` y contraseña `root`
 
-3. **Ejecutar el proyecto:**
+
+4. **Ejecutar el proyecto:**
 
 ```
 mvn spring-boot:run
