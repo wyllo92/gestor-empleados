@@ -16,21 +16,15 @@ royecto desarrollado con Spring Boot para la gestión de empleados, integrando b
 
 ## Cómo ejecutar el proyecto
 
-1. Clonar repositorio
+**Clonar repositorio**
 ```
 git clone https://github.com/wyllo92/gestor-empleados.git
 cd gestor-empleados
 ```
 
-2. **Configurar la base de datos:**
+**Configurar la base de datos:**
 Asegúrate de tener un servidor MySQL ejecutándose en el puerto 3306, creada una base de datos llamada `empleados_db` con el usuario `root` y contraseña `root`
 
-
-4. **Ejecutar el proyecto:**
-
-```
-mvn spring-boot:run
-```
 
 ## Generación de código SOAP
 
@@ -47,6 +41,17 @@ Para ejecutar la generación de código WSDL:
 
 ```
 mvn clean compile
+```
+
+**Crear paquetes jar:**
+```
+mvn clean package -DskipTests
+```
+
+**Ejecutar el proyecto:**
+
+```
+mvn spring-boot:run
 ```
 
 para probar en postman 
@@ -69,7 +74,7 @@ envia este JSON en el body:
 }
 ```
 
-tambien esta este endpoint para el REST:
+tambien esta disponible este endpoint con REST:
 ```
 http://localhost:8080/api/empleados
 ```
