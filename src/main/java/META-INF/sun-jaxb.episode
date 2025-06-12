@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
+Visite https://eclipse-ee4j.github.io/jaxb-ri 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2025.06.11 a las 09:28:46 PM COT 
+
+  -->
+      
+    <bindings xmlns:tns="http://www.gestor-empleados.com/soap" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.app.gestor_empleados.soap.model"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:empleadoRequest">
+                  
+            <class ref="com.app.gestor_empleados.soap.model.EmpleadoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:empleadoResponse">
+                  
+            <class ref="com.app.gestor_empleados.soap.model.EmpleadoResponse"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>
