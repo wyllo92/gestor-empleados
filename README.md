@@ -50,7 +50,7 @@ mvn clean compile
 ```
 
 para probar en postman 
-pon este endpoint con el metodo POST:
+pon este endpoint con el metodo POST version SOAP:
 ```
 http://localhost:8080/api/empleados/soap
 ```
@@ -67,4 +67,9 @@ envia este JSON en el body:
    "cargo":"Desarrollador",
    "salario":8000000.0
 }
+```
+
+tambien esta este endpoint para el REST:
+```
+http://localhost:8080/api/empleados
 ```
