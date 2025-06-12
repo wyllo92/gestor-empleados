@@ -17,7 +17,7 @@ public class EmpleadoController {
     @Autowired
     private EmpleadoService empleadoService;
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity<EmpleadoDTO> crearEmpleado(@Valid @RequestBody EmpleadoDTO empleadoDTO) {
         empleadoDTO.calcularTiempos();
         EmpleadoDTO empleadoGuardado = empleadoService.guardarEmpleado(empleadoDTO);
