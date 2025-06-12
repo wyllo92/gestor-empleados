@@ -16,10 +16,9 @@ royecto desarrollado con Spring Boot para la gestión de empleados, integrando b
 
 ## Cómo ejecutar el proyecto
 
-1. Clonar el repositorio:
-
+1. Clonar repositorio
 ```
-git clone https://github.com/tu-usuario/gestor-empleados.git
+git clone https://github.com/wyllo92/gestor-empleados.git
 cd gestor-empleados
 ```
 
