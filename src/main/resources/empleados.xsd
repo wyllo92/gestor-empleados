@@ -22,9 +22,17 @@
     <xs:element name="empleadoResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="id" type="xs:long"/>
-                <xs:element name="mensaje" type="xs:string"/>
-                <xs:element name="status" type="xs:boolean"/>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="numeroDocumento" type="xs:string"/>
+                <xs:element name="nombres" type="xs:string"/>
+                <xs:element name="apellidos" type="xs:string"/>
+                <xs:element name="tipoDocumento" type="xs:string"/>
+                <xs:element name="fechaNacimiento" type="xs:date"/>
+                <xs:element name="fechaVinculacion" type="xs:date"/>
+                <xs:element name="cargo" type="xs:string"/>
+                <xs:element name="salario" type="xs:double"/>
+                <xs:element name="edad" type="xs:string"/>
+                <xs:element name="tiempoVinculacion" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
