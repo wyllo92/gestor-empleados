@@ -1,7 +1,6 @@
 package com.app.gestor_empleados.model;
 
 import java.time.LocalDate;
-import java.time.Period;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -57,42 +56,7 @@ public class EmpleadoDTO {
         if (fechaNacimiento == null) {
             return true;
         }
-        LocalDate fechaActual = LocalDate.now();
-        return Period.between(fechaNacimiento, fechaActual).getYears() >= 18;
-    }
-
-    public void calcularTiempos() {
-        if (fechaNacimiento != null) {
-            Period periodo = Period.between(fechaNacimiento, LocalDate.now());
-            edad = formatearPeriodo(periodo);
-        }
-        if (fechaVinculacion != null) {
-            Period periodo = Period.between(fechaVinculacion, LocalDate.now());
-            tiempoVinculacion = formatearPeriodo(periodo);
-        }
-    }
-
-    private String formatearPeriodo(Period periodo) {
-        StringBuilder resultado = new StringBuilder();
-        
-        if (periodo.getYears() > 0) {
-            resultado.append(periodo.getYears()).append(" año");
-            if (periodo.getYears() != 1) resultado.append("s");
-        }
-        
-        if (periodo.getMonths() > 0) {
-            if (resultado.length() > 0) resultado.append(", ");
-            resultado.append(periodo.getMonths()).append(" mes");
-            if (periodo.getMonths() != 1) resultado.append("es");
-        }
-        
-        if (periodo.getDays() > 0 || resultado.length() == 0) {
-            if (resultado.length() > 0) resultado.append(" y ");
-            resultado.append(periodo.getDays()).append(" día");
-            if (periodo.getDays() != 1) resultado.append("s");
-        }
-        
-        return resultado.toString();
+        return java.time.Period.between(fechaNacimiento, java.time.LocalDate.now()).getYears() >= 18;
     }
 }
 
