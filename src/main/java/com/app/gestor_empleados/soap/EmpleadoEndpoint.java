@@ -6,11 +6,13 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+
 import com.app.gestor_empleados.model.EmpleadoDTO;
 import com.app.gestor_empleados.service.EmpleadoService;
 import com.app.gestor_empleados.soap.model.EmpleadoRequest;
 import com.app.gestor_empleados.soap.model.EmpleadoResponse;
 
+import java.time.Period;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.time.LocalDate;
 
@@ -38,9 +40,17 @@ public class EmpleadoEndpoint {
         EmpleadoDTO empleadoGuardado = empleadoService.guardarEmpleado(empleadoDTO);
 
         EmpleadoResponse response = new EmpleadoResponse();
-        response.setId(empleadoGuardado.getId());
-        response.setMensaje("Empleado guardado exitosamente");
-        response.setStatus(true);
+        response.setId(empleadoGuardado.getId().toString());
+        response.setNumeroDocumento(request.getNumeroDocumento());
+        response.setNombres(request.getNombres());
+        response.setApellidos(request.getApellidos());
+        response.setTipoDocumento(request.getTipoDocumento());
+        response.setFechaNacimiento(request.getFechaNacimiento());
+        response.setFechaVinculacion(request.getFechaVinculacion());
+        response.setCargo(request.getCargo());
+        response.setSalario(request.getSalario());
+        response.setEdad(calcularTiemposSoap(empleadoDTO.getFechaNacimiento()));
+        response.setTiempoVinculacion(calcularTiemposSoap(empleadoDTO.getFechaVinculacion()));
 
         return response;
     }
@@ -54,5 +64,33 @@ public class EmpleadoEndpoint {
             calendar.getMonth(),
             calendar.getDay()
         );
+    }
+
+    private String calcularTiemposSoap(LocalDate fechaInicial) {
+        Period periodo = Period.between(fechaInicial, LocalDate.now());
+        return formatearPeriodoSoap(periodo);
+    }
+
+    private String formatearPeriodoSoap(Period periodo) {
+        StringBuilder resultado = new StringBuilder();
+        
+        if (periodo.getYears() > 0) {
+            resultado.append(periodo.getYears()).append(" año");
+            if (periodo.getYears() != 1) resultado.append("s");
+        }
+        
+        if (periodo.getMonths() > 0) {
+            if (resultado.length() > 0) resultado.append(", ");
+            resultado.append(periodo.getMonths()).append(" mes");
+            if (periodo.getMonths() != 1) resultado.append("es");
+        }
+        
+        if (periodo.getDays() > 0 || resultado.length() == 0) {
+            if (resultado.length() > 0) resultado.append(" y ");
+            resultado.append(periodo.getDays()).append(" día");
+            if (periodo.getDays() != 1) resultado.append("s");
+        }
+        
+        return resultado.toString();
     }
 } 

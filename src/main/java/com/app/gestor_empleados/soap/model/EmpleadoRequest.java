@@ -5,7 +5,6 @@
 // Generado el: 2025.06.11 a las 09:28:46 PM COT 
 //
 
-
 package com.app.gestor_empleados.soap.model;
 
 import jakarta.xml.bind.annotation.*;
@@ -40,7 +39,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "empleadoRequest", propOrder = {
     "numeroDocumento",
     "nombres",
     "apellidos",
@@ -50,7 +49,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "cargo",
     "salario"
 })
-@XmlRootElement(name = "empleadoRequest")
+@XmlRootElement(name = "empleadoRequest", namespace = "http://www.gestor-empleados.com/soap")
 @Data
 public class EmpleadoRequest {
 
